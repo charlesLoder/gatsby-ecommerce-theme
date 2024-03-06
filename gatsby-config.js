@@ -17,5 +17,26 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-W95T4XRN",
+
+      // Include GTM in development.
+      //
+      // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: true,
+        // datalayer to be set before GTM is loaded
+        // should be a stringified object or object
+        //
+        // Defaults to null
+        defaultDataLayer: function () {
+          return {
+            pageType: window.pageType,
+          }
+        },
+        routeChangeEventName: "ROUTE_CHANGE"
+      },
+    },
   ],
 };
